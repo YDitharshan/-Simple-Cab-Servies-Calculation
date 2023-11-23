@@ -1,0 +1,76 @@
+passengers_vechicle={"van":{"no_of_passengers":"4" ,"AC_Type":["AC","NON_AC"]},
+         "car":{"no_of_passengers":"4" ,"AC_Type":["AC","NON_AC"]},
+         "three_wheeler":"3",
+         }
+
+goods_vechicle={"truck":["7","12"],
+             "lorry":["2500","3500"]}
+             
+print("""
+print("Press \'a\' ,For Add the Passengers Transport Vechicle")
+print("Press \'b\' ,For remove the Passengers Vechicle")
+print("Press \'c\' ,For Add the Goods Transport Vechicle")
+print("Press \'d\' ,For remove the Goods Vechicle")
+print("Press \'e\' ,For hire the Vechicle")
+print("Press \'f\' ,For see the available Vechicle")
+print("Press \'end\' ,For Quite this Program")
+""")
+
+
+while True:
+  c=input("Please Give Your Requirements: ")
+
+  if c=="a":
+     vechicle=input("Please Give the Vechicle: ")
+     passenger_no=int(input("Please Enter No Passengers: "))
+     available=input("Please Enter Type of Ac: ")
+     transport={"no_of_passengers":passenger_no,"AC_Type":available}
+     passengers_vechicle.update({vechicle:transport})
+    
+
+     print(passengers_vechicle)
+
+  elif c=="b":
+       remove=input("Please remove: ")
+       passengers_vechicle.pop(remove)
+               
+       print(passengers_vechicle)
+
+
+  elif c=="c":
+       vechicle=input("Please Give the Vechicle: ")
+       load1=int(input("Please Enter Weight 1: "))
+       load2=int(input("Please Enter Weight 2: "))
+       transport=[load1,load2]
+       goods_vechicle.update({vechicle:transport})
+    
+
+       print(goods_vechicle)
+
+  elif c=="d":
+       remove=input("remove Vechil: ")
+       goods_vechicle.pop(remove)
+               
+       print(goods_vechicle)
+
+  elif c=="e":
+       find=input("Name:")
+       if find in passengers_vechicle.keys():
+         print(passengers_vechicle[find])
+         del passengers_vechicle[find]
+         
+  elif c=="f":         
+       if find in goods_vechicle.keys():
+         print(goods_vechicle[find])
+         del goods_vechicle[find]
+
+  elif c == "g":
+        for view in passengers_vechicle.items():
+          print(view)
+          
+  elif c == "h":          
+       for view in goods_vechicle.items():
+          print(view)   
+
+    
+
